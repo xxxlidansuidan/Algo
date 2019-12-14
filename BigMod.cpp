@@ -1,9 +1,9 @@
 *****UVA - 374 - Big Mod (solution) :
 #include <stdio.h>
 int mod(long b, long p, long m) {
-    if(p==0) return 1;
+    if (p==0) return 1;
 
-    if(p%2==0) return (mod(b,p/2,m)*mod(b,p/2,m))%m;
+    if (!(p & 1)) {int x = mod(b, p/2, m); return (x*x)%m;}
 
     return (mod(b,p-1,m)*(b%m))%m;
 }
